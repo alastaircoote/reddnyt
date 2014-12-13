@@ -5,12 +5,14 @@
   "dependencies": {
     "aws-sdk": "^2.1.1",
     "bluebird": "^2.3.11",
+    "coffee-script": "^1.8.0",
     "request": "^2.48.0",
     "sqlite3": "^3.0.4"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "create-db": "node_modules/coffee-script/bin/coffee create-db.coffee",
+    "start": "node_modules/coffee-script/bin/coffee grab-urls.coffee"
   },
   "author": "",
   "license": "ISC"

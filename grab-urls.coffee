@@ -3,8 +3,17 @@ requestAsync = Promise.promisify require 'request'
 Config = require './config'
 sqlite3 = require 'sqlite3'
 path = require 'path'
+fs = require 'fs'
 AWS = require 'aws-sdk'
 zlib = Promise.promisifyAll require('zlib')
+
+if !fs.existsSync './config.json'
+    throw new Error "No configuration file created."
+
+if !fs.existsSync "./newswire.db"
+    throw new Error "No database. Run npm create-db to create it."
+
+
 
 AWS.config.update
     accessKeyId: Config['aws-key']
