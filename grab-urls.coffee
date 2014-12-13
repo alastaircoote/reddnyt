@@ -89,7 +89,7 @@ updateData = ->
         getNewURLs()
     .then ->
         db.allAsync """
-            SELECT url FROM newswire WHERE last_updated IS NULL OR last_updated < $1
+            SELECT url FROM newswire WHERE last_updated IS NULL OR last_updated < $1 LIMIT 50
         """, [Date.now() - refreshEvery]
     .then (rows) ->
         console.log "Updating #{rows.length} rows..."
