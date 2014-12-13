@@ -18,5 +18,5 @@ Installation
 - Clone this git repo. Run ```npm install``` to install dependencies.
 - Copy ```config.example.json``` to ```config.json``` and switch out the values for
   your own.
-- Run ```npm create-db``` to create the sqlite database.
+- Run ```npm run-script create-db``` to create the sqlite database.
 - Run ```npm start``` to start the crawler.

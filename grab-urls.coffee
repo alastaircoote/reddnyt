@@ -1,6 +1,6 @@
 Promise = require 'bluebird'
 requestAsync = Promise.promisify require 'request'
-Config = require './config'
+
 sqlite3 = require 'sqlite3'
 path = require 'path'
 fs = require 'fs'
@@ -13,7 +13,7 @@ if !fs.existsSync './config.json'
 if !fs.existsSync "./newswire.db"
     throw new Error "No database. Run npm create-db to create it."
 
-
+Config = require './config'
 
 AWS.config.update
     accessKeyId: Config['aws-key']
