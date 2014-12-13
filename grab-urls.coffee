@@ -89,8 +89,8 @@ updateData = ->
         getNewURLs()
     .then ->
         db.allAsync """
-            SELECT url FROM newswire WHERE last_updated IS NULL OR $2 - last_updated > $1
-        """, [refreshEvery,Date.now()]
+            SELECT url FROM newswire WHERE last_updated IS NULL OR last_updated < $1
+        """, [Date.now() - refreshEvery]
     .then (rows) ->
         console.log "Updating #{rows.length} rows..."
         shareData = rows.map (r) ->
