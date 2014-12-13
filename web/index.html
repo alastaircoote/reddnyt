@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1"/>
+        <title>Reddnyt</title>
+        <style type="text/css">
+
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            h1 {
+                border-bottom: solid 1px #000;
+                margin: 10px auto;
+                padding-bottom: 10px;
+            }
+            ol {
+                list-style:none;
+                margin:0;
+                padding:0;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            img {
+                width: 60px;
+                height: 60px;
+                position: absolute;
+                top:20px;
+                left:0px;
+            }
+
+            a {
+                display: block;
+                padding-left: 75px;
+                position: relative;
+                height: 75px;
+                margin-bottom: 10px;
+                text-decoration: none;
+                color: #666;
+                padding-bottom: 10px;
+                border-bottom: solid 1px #ccc;
+            }
+
+            span.num {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 60px;
+                text-align: center;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Reddnyt</h1>
+        <ol id='entry-list'>
+        </ol>
+        <script>
+        ol = document.getElementById('entry-list');
+        window.callback = function(rows) {
+            top50 = rows.splice(0,50);
+            html = top50.map(function(row, index){
+                return "<li>" +
+                    
+                    "<a href='" + row.url + "'>" +
+                    "<span class='num'><span class='total'>" + (row.fb_shares + row.tw_shares) + "</span></span>" +
+                    (row.photo ? "<img src='" + row.photo + "'/>" : "") +
+                    "<span>" + row.title + "</span></a></li>"
+            });
+            ol.innerHTML = html.join('')
+        }
+
+        </script>
+        <script src='http://experimenting.alastair.is/reddnyt/data/latest.js'></script>
+    </body>
+</html>

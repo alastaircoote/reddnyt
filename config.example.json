@@ -1,3 +1,7 @@
 {
-    "timeswire-api-key": "API-KEY-HERE"
+    "timeswire-api-key": "API-KEY-HERE",
+    "aws-key": "AWS-KEY",
+    "aws-secret": "AWS-SECRET",
+    "s3-bucket": "your.s3bucket.com",
+    "s3-upload-path": "/path/to/latest.json"
 }
